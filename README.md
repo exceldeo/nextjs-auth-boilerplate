@@ -29,11 +29,11 @@ src/
 		api/                 # Mock API routes (public/protected + auth endpoints)
 		layout.tsx           # Root layout, wraps providers
 		page.tsx             # Home page (demo)
-    providers/           # App-level providers (Redux, React Query)
-    lib/                 # Server-side helpers (auth.ts, api.ts, validation.js)
-    store/               # Redux store, slice, typed hooks
-    hooks/               # Reusable React hooks
-    components/auth/     # Auth-related UI (Login/Register/ProtectedRoute)
+  providers/           # App-level providers (Redux, React Query)
+  lib/                 # Server-side helpers (auth.ts, api.ts, validation.js)
+  store/               # Redux store, slice, typed hooks
+  hooks/               # Reusable React hooks
+  components/auth/     # Auth-related UI (Login/Register/ProtectedRoute)
 	styles/
 	utils/                 # Generic utilities (e.g., formatMoney.ts)
 	types/                 # Global/shared TypeScript types (recommended)
