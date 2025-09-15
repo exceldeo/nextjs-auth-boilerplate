@@ -25,6 +25,26 @@ export default function Home() {
   const handleLogout = () => {
     logout();
   };
+  const renderPublicContent = () => {
+    if (publicLoading) {
+      return <p>Loading public data...</p>;
+    }
+    if (publicData) {
+      return (
+        <div>
+          <p className="text-gray-700 mb-4">{publicData.message}</p>
+          <ul className="space-y-2">
+            {publicData.data.items.map((item) => (
+              <li key={item.id} className="p-2 bg-gray-100 rounded">
+                {item.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+    return <p>No public data available</p>;
+  };
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gray-50 py-12">
@@ -58,29 +78,13 @@ export default function Home() {
             </button>
           </div>
         </div>
-        ﻿
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Public Data Section */}
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-bold mb-4">Public Data</h2>
-            {publicLoading ? (
-              <p>Loading public data...</p>
-            ) : publicData ? (
-              <div>
-                <p className="text-gray-700 mb-4">{publicData.message}</p>
-                <ul className="space-y-2">
-                  {publicData.data.items.map((item) => (
-                    <li key={item.id} className="p-2 bg-gray-100 rounded">
-                      {item.name}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : (
-              <p>No public data available</p>
-            )}
+            {renderPublicContent()}
           </div>
-          ﻿{/* Protected Data Section */}
+          {/* Protected Data Section */}
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-bold mb-4">Protected Data</h2>
             <button
@@ -115,7 +119,7 @@ export default function Home() {
             )}
           </div>
         </div>
-        ﻿{/* Example of Protected Route */}
+        {/* Example of Protected Route */}
         <div className="mt-8">
           <ProtectedRoute>
             <div className="bg-white p-6 rounded-lg shadow-md">

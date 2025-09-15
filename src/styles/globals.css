@@ -1,26 +1,159 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
 
-@theme inline {
+/* (Removed duplicate base variables; full token set is defined below) */
+
+/* Expose tokens to Tailwind v4 so utilities like bg-background, text-foreground,
+   and border-border are known at build time (especially for @apply usage). */
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-sidebar-background: var(--sidebar-background);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+/* Tailwind v4 uses @import "tailwindcss"; the old @tailwind directives are not needed. */
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* All colors in HEX */
+    --background: #f9f9f9;
+    --foreground: #0a1022;
+
+    --card: #ffffff;
+    --card-foreground: #0a1022;
+
+    --popover: #ffffff;
+    --popover-foreground: #0a1022;
+
+    --primary: #1a3573;
+    --primary-foreground: #f6fafd;
+
+    --secondary: #153d23;
+    --secondary-foreground: #f6fafd;
+
+    --muted: #f5f6f9;
+    --muted-foreground: #7a8599;
+
+    --accent: #b3d7c7;
+    --accent-foreground: #153d23;
+
+    --destructive: #f25555;
+    --destructive-foreground: #f6fafd;
+
+    --border: #e5e7eb;
+    --input: #e5e7eb;
+    --ring: #1a3573;
+
+    /* Custom design tokens */
+    --gradient-primary: linear-gradient(135deg, #1a3573, #23489c);
+    --gradient-secondary: linear-gradient(135deg, #153d23, #206c3a);
+    --gradient-hero: linear-gradient(135deg, #1a3573 0%, #153d23 100%);
+    --shadow-card: 0 4px 12px #1a35731a;
+    --shadow-hero: 0 20px 40px #1a357326;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: #fafafa;
+    --sidebar-foreground: #393e4a;
+    --sidebar-primary: #181a1f;
+    --sidebar-primary-foreground: #fafafa;
+    --sidebar-accent: #f4f5f7;
+    --sidebar-accent-foreground: #181a1f;
+    --sidebar-border: #e5e7eb;
+    --sidebar-ring: #3b82f6;
+  }
+
+  .dark {
+    --background: #0a1022;
+    --foreground: #f6fafd;
+
+    --card: #0a1022;
+    --card-foreground: #f6fafd;
+
+    --popover: #0a1022;
+    --popover-foreground: #f6fafd;
+
+    --primary: #f6fafd;
+    --primary-foreground: #0a1022;
+
+    --secondary: #206c3a;
+    --secondary-foreground: #f6fafd;
+
+    --muted: #232a33;
+    --muted-foreground: #a1adc2;
+
+    --accent: #206c3a;
+    --accent-foreground: #f6fafd;
+
+    --destructive: #7a2a1f;
+    --destructive-foreground: #f6fafd;
+
+    --border: #232a33;
+    --input: #232a33;
+    --ring: #2953b8;
+
+    /* Dark mode custom tokens */
+    --gradient-primary: linear-gradient(135deg, #2953b8, #3e73dd);
+    --gradient-secondary: linear-gradient(135deg, #206c3a, #2e9c5c);
+    --gradient-hero: linear-gradient(135deg, #2953b8 0%, #206c3a 100%);
+    --shadow-card: 0 4px 12px #0000004d;
+    --shadow-hero: 0 20px 40px #00000066;
+    --sidebar-background: #181a1f;
+    --sidebar-foreground: #f4f5f7;
+    --sidebar-primary: #3e73dd;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #23252a;
+    --sidebar-accent-foreground: #f4f5f7;
+    --sidebar-border: #23252a;
+    --sidebar-ring: #3b82f6;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
 }
