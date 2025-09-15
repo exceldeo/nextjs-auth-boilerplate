@@ -46,20 +46,10 @@ export default function Home() {
     return <p>No public data available</p>;
   };
   if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-6xl mx-auto px-4">
-          <h1 className="text-3xl font-bold text-center mb-8">
-            Next.js Authentication Boilerplate
-          </h1>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <LoginForm />
-            <RegisterForm />
-          </div>
-        </div>
-      </div>
-    );
+    if (typeof window !== "undefined") {
+      window.location.href = "/login";
+    }
+    return null;
   }
   return (
     <div className="min-h-screen bg-gray-50 py-12">
