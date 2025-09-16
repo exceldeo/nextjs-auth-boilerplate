@@ -29,13 +29,13 @@ export async function GET(request) {
       });
     } catch (jwtError) {
       return NextResponse.json(
-        { success: false, message: "Invalid or expired token" },
+        { success: false, message: jwtError.message },
         { status: 401 }
       );
     }
   } catch (error) {
     return NextResponse.json(
-      { success: false, message: "Server error" },
+      { success: false, message: error.message },
       { status: 500 }
     );
   }

@@ -18,6 +18,10 @@ export default function RegisterForm() {
   ) => {
     clearError();
     const { confirmPassword, ...userData } = values;
+    if (values.password !== values.confirmPassword) {
+      // Handle password mismatch error
+      return;
+    }
     register(userData);
     setSubmitting(false);
   };

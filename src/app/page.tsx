@@ -3,8 +3,6 @@ import { useEffect } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { usePublicData } from "@/hooks/usePublicData";
 import { useProtectedData } from "@/hooks/useProtectedData";
-import LoginForm from "@/components/auth/LoginForm";
-import RegisterForm from "@/components/auth/RegisterForm";
 import ProtectedRoute from "@/components/auth/ProtectedRoute";
 
 export default function Home() {
